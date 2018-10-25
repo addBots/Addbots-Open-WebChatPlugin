@@ -16,14 +16,11 @@ https://nodejs.org/en/
 
 ### Installing
 
-After cloning the  go to the root folder from the terminal and run :
+After cloning, go to the root folder from the terminal and run :
 
 ```
 npm install
 ```
-
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running 
 
@@ -33,11 +30,74 @@ npm start
 
 ### Sending messages to the Plugin
 
-TODO
+Sending a simple text Message with a quick replies (optional)
 
 ```
+{
+    "statusCode": 200,  
+    "connected": true,
+    "type": "new_message",
+    "payload": {
+        "messaging_type": "RESPONSE", "recipient": { "id": "<USERID>" },
+        "message": { "text": <textMessage> 
+                     "quick_replies?": 
+                     [
+                        { "content_type": "text", "title": "<text>", "payload": "<Payload>" },
+                        ... 
+                    ]
+        }, 
+        "timestamp": <Timestamp in miliseconds>
+    }
+}
+```
+
+Sending a carousel with buttons(optional) 
 
 ```
+{
+    "statusCode": 200,
+    "connected": true,
+    "type": "new_message",
+    "payload": {
+        "messaging_type": "RESPONSE",
+        "recipient": {
+            "id": "<<USERID>>"
+        },
+        "message": {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": [
+                        {
+                            "image_url": "<URL>",
+                            "title": "<text>",
+                            "subtitle": "<text>",
+                            "buttons?": [
+                                {
+                                    "type":"postback",
+                                    "title":"<text>",
+                                    "payload":"<payload>"
+                                },
+                                {
+                                    "type":"web_url",
+                                    "title":"<text>",
+                                    "url": "<URL>"
+                                },
+                                ...
+                            ]
+                        },
+                        ...
+                    ],
+                    "sharable": <true | false>
+                }
+            }
+        },
+        "timestamp": <Timestamp in miliseconds>
+    }
+}
+```
+
 
 ### Configuring the Plugin
 
@@ -55,6 +115,7 @@ Example of config keys
 			}
 
 ```
+
 
 ## Deployment
 
