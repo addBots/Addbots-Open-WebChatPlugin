@@ -9,7 +9,7 @@ import { initPlugin } from './init-logic/init-plugin';
 		'bot': {
 			'id': '1',
 			// 'backendUrl': 'ws://18.222.67.176:8999',
-			'backendUrl': 'ws://localhost:8999',
+			'backendUrl': 'ws://localhost:3000',
 			'displayName': 'CivitasDigitalis',
 			'disclaimerUrl': 'http://www.google.com'
 		},
@@ -21,8 +21,8 @@ import { initPlugin } from './init-logic/init-plugin';
 				'height': 570
 			},
 			'header': {
-				'iconUrl': '',
-				'closeButtonUrl': ''
+				'iconUrl': 'http://ec2-18-222-67-176.us-east-2.compute.amazonaws.com/images/plugin/logo_white.png',
+				'closeButtonUrl': 'http://ec2-18-222-67-176.us-east-2.compute.amazonaws.com/images/plugin/close_cross.png'
 			},
 			'floatingButton': {
 				'iconUrl': ''
